@@ -1,0 +1,39 @@
+{% extends "templates.html" %}
+{% block content %}
+	<div class="container text-center">
+		<form class="form-signin border p-5" method=post enctype=multipart/form-data>
+			<h1 class="card-title">ADDICT</h1>
+			<h2 class="card-subtitle mb-2 text-body-secondary">Apple Diseases Predict / Deteksi Penyakit Apel</h2>
+			<p card-text>Silahkan masukan foto daun apel anda</p>
+			<input type="file" name="file" class="form-control-file" id="inputfile"  onchange="preview_image(event)">
+			<br/>
+			<img id="output-image" class="rounded mx-auto d-block m-2"/>
+			<button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Upload</button>
+		</form>
+	</div>
+	<footer class="footer text-center">
+		<div class="container px-4 px-lg-5">
+			<p class="text-muted small mb-0">Copyright &copy; 2023</p>
+		</div>
+	</footer>
+	<!-- <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 85vh;
+            margin: 0;
+        }
+    </style> -->
+
+	<script type="text/javascript">
+		function preview_image(event) {
+			var reader = new FileReader();
+			reader.onload = function(){
+				var output = document.getElementById('output-image')
+				output.src = reader.result;
+			}
+			reader.readAsDataURL(event.target.files[0]);
+		}
+	</script>
+{% endblock %}

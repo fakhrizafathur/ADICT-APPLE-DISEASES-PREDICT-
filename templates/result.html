@@ -1,0 +1,24 @@
+{% extends "templates.html" %}
+{% block content %}
+	<form class="form-signin m-2" method=post enctype=multipart/form-data>
+		<!-- <img src="{{ user_image }}" alt="User Image"> -->
+		{% if name == "healthy"%}
+			<h1 class="h1 mb-3 font-weight-normal"> Tanaman Apel mu sehat </h1>
+			<p class="mb-3 font-weight-normal"> {{ description }} </p> 
+		{% else %}
+			<h1 class="h1 mb-3 font-weight-normal"> Tanaman Apelmu Terkena Penyakit {{ name }} !!</h5>
+			<p class="mb-3 font-weight-normal"> {{ description }} </p> 
+		{% endif %}
+		<a href="/deteksi" class="btn btn-primary start-button mt-5 btn-lg text-center">Kembali</a>
+	</form>
+
+
+	<style>
+	.start-button {
+		text-align: center;
+		align-items: center;
+		margin-left: 650px;
+		justify-content: center;
+	}
+	</style>
+{% endblock %}
